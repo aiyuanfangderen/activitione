@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.java.activiti.dao.MaterialDao">
+	
+	
+	<!-- 添加一个资料 -->
+	<insert id="insertMaterial" parameterType="com.java.activiti.model.Material">
+	      insert into user(user_id,user_data,state)
+	      values(#{user_id},#{user_data},#{state})
+	</insert>
+	
+
+	<!-- 查询某一个用户的所有资料 -->
+	<select id="selectAllMaterial" parameterType="String" resultType="com.java.activiti.model.Material">
+	      select * from user
+	      where user.user_id=#{user_id}
+	</select>
+	
+	
+	
+	<!-- 根据资料的id查找某一条记录 -->
+	<select id="findbyid"  parameterType="int" resultType="com.java.activiti.model.Material">
+	select * from user where user.id=#{id}
+	</select>
+	
+	<update id="updateMaterial" parameterType="com.java.activiti.model.Material">
+	   update user
+	   set user.state=#{state}
+	   where user.id=#{id}
+	
+	
+	</update>
+	
+	
+	
+</mapper> 
